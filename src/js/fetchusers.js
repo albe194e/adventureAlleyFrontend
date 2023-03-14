@@ -1,6 +1,6 @@
 console.log("Vi er i fetch users")
 const urlUsers = "http://localhost:8080/users"
-const button = document.getElementById("knap")
+const button = document.getElementById("loginbtn")
 const usernameInput = document.getElementById("username")
 const passwordInput = document.getElementById("password")
 
