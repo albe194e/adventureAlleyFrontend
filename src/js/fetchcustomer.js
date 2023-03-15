@@ -2,6 +2,7 @@ console.log("Vi er i fetch costumers")
 const urlCustomers = "http://localhost:8080/customers"
 
 
+
 function fetchAny(url) {
     console.log(url)
     return fetch(url).then((response) => response.json())
@@ -22,5 +23,42 @@ async function compareCostumer() {
         }
     })
 }
+customerList = []
+async function fetchCustomers() {
+    customerList = await fetchAny(urlCustomers);
+    console.log(customerList)
+    customerList.forEach(fillCustomerDropDown)
+}
 
-button.addEventListener('click', compareCostumer)
+let body = {}
+const postCustomerRequest = {
+    method: "POST",
+    headers: {
+        "content-type": "application/json"
+    },
+    body: body
+}
+
+function postCustomer(customer) {
+    body = JSON.stringify(customer)
+    console.log(body)
+    postCustomerRequest.body = body
+    fetch(urlCustomers, postCustomerRequest).catch((error) => console.log(error));
+}
+
+function actionPostAllCustomers() {
+    if (customerList) {
+        console.log("post alle customers")
+        customerList.forEach(postCustomer)
+    } else {
+        console.log("tryk på fetchcustomer knappen fjols")
+    }
+}
+
+/*const pbFetchCustomers = document.getElementById("pbFetchCustomers")
+pbFetchCustomers.addEventListener('click', fetchCustomers)
+const pbPostCustomers = document.getElementById("pbPostCustomers")
+pbPostCustomers.addEventListener('click', actionPostAllCustomers)
+
+
+bu*tton.addEventListener('click', compareCostumer)*/

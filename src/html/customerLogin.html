@@ -9,17 +9,72 @@
 <body>
 
 <h1>Opret ny bruger</h1>
-
-<label>Brugernavn: <br>
-    <input type="text" id="username">
-</label>
-<br>
-
-<label>Adgangskode: <br>
-    <input type="text" id="password">
-</label>
-
-<button id="newUserBtn">Opret ny bruger</button>
+<div>
+        <div>
+            <label for="inpFornavn">Fornavn</label>
+            <input
+                    type="text"
+                    name="fornavn"
+                    class="inputfield"
+                    placeholder="eks. Jakob"
+                    id="inpFornavn">
+        </div>
+        <div>
+            <label for="inpEfternavn">Efternavn</label>
+            <input
+                    type="text"
+                    name="efternavn"
+                    class="inputfield"
+                    placeholder="eks. Jensen"
+                    id="inpEfternavn">
+        </div>
+        <div>
+            <label for="inpEmail">Email</label>
+            <input
+                    type="text"
+                    name="email"
+                    class="inputfield"
+                    placeholder="eks."
+                    id="inpEmail">
+        </div>
+        <div>
+            <label for="inpAdresse">Adresse</label>
+            <input
+                    type="text"
+                    name="adresse"
+                    class="inputfield"
+                    placeholder="eks."
+                    id="inpAdresse">
+        </div>
+        <div>
+            <label for="inpTlf">Telefonnummer</label>
+            <input
+                    type="text"
+                    name="tlf"
+                    class="inputfield"
+                    placeholder="eks."
+                    id="inpTlf">
+        </div>
+        <div>
+            <label for="inpUsername">Brugernavn</label>
+            <input
+                    type="text"
+                    name="username"
+                    class="inputfield"
+                    placeholder="eks."
+                    id="inpUsername">
+        </div>
+        <div>
+            <label for="inpPassword">Password</label>
+            <input
+                    type="text"
+                    name="password"
+                    class="inputfield"
+                    placeholder="eks."
+                    id="inpPassword">
+        </div>
+        <button type="submit" title="Save" id="pbCreateCustomer">Opret ny bruger</button>
+</div>
 
 <hr>
 
@@ -37,8 +92,8 @@
 <button id="loginBtn">login</button>
 
 
-
 </body>
 
 <script src="../js/fetchcustomer.js"></script>
+<script src="../js/formcustomer.js"></script>
 </html>
