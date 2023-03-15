@@ -23,4 +23,4 @@ async function compareCostumer() {
     })
 }
 
-button.addEventListener('click', compareCostumer)
+//button.addEventListener('click', compareCostumer)
