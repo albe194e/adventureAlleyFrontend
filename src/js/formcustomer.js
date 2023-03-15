@@ -1,58 +1,39 @@
 console.log("Vi er i create new account")
-const urlCustomer = "http://localhost:8080/customers"
+const button = document.getElementById("pbCreateCustomer")
+const newCustomerURL = "http://localhost:8080/createCustomer"
 
-document.addEventListener('DOMContentLoaded', createFormEventListener);
-let formCustomer;
+const inputUsername = document.getElementById("inpUsername")
+const inputPassword = document.getElementById("inpPassword")
+const inputFirstname = document.getElementById("inpFornavn")
+const inputLastname = document.getElementById("inpEfternavn")
+const inputAddress = document.getElementById("inpAdresse")
+const inputTlf = document.getElementById("inpTlf")
+const inputEmail = document.getElementById("inpEmail")
 
-function createFormEventListener() {
-    formCustomer = document.getElementById("formCustomer");
-    formCustomer.addEventListener("submit", handleFormSubmit);
+
+const postCustomerReq = {
+    method: "POST",
+    headers: {
+        "content-type": "application/json"
+    },
+    body: {}
 }
 
-async function handleFormSubmit(event) {
-//Vi handler submit her, i stedet for default html behaviour
-    event.preventDefault();
-    const form = event.currentTarget;
-    const url = form.action;
-    console.log(form)
-    console.log(url)
-    console.log(form === formCustomer)
-    try {
-        const formData = new FormData(form)
-        console.log(formData)
-        const responseData = await postFormData(url, formData)
-        console.log(responseData)
-    } catch (error) {
-        alert(error.message)
-        console.log(error)
+async function newCustomerReq(username, password, firstName, lastName, address, tlf, mail) {
+    let newCustomerBody = {
+        "inpUsername": username, "inpPassword": password, "inpFornavn": firstName,
+        "inpEfternavn": lastName, "inpAdresse": address, "inpTlf": tlf, "inpEmail": mail
     }
+    console.log(newCustomerBody)
+    postCustomerReq.body = JSON.stringify(newCustomerBody)
+    return await fetch(newCustomerURL, postCustomerReq).then((response) => response.json())
 }
 
-async function postFormData(url, formData) {
-    const plainFormData = Object.fromEntries(formData.entries())
-    console.log(plainFormData)
-    //stopper her
-    const ix = cnCustomer.selectedIndex;
-    console.log(ix)
-    const linje = cnCustomer[ix]
-    console.log(linje.customer)
-    plainFormData.customer = linje.customer
-    const formDataJsonString = JSON.stringify(plainFormData)
-
-    const fetchOptions = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: formDataJsonString
-    }
-    const response = await fetch(url, fetchOptions)
-    if (!response.ok) {
-        const errorMessage = await response.text()
-        throw new Error(errorMessage)
-    }
+function newCustomerAction() {
+    let response = newCustomerReq(inputUsername.value, inputPassword.value, inputFirstname.value,
+        inputLastname.value, inputAddress.value, inputTlf.value, inputEmail.value)
+    console.log(response)
 }
 
+button.addEventListener('click', newCustomerAction)
 
-
-const cnCustomer = document.getElementById("cnCustomer")
