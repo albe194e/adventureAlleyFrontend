@@ -23,6 +23,13 @@ async function compareCostumer() {
         }
     })
 }
+customerList = []
+async function fetchCustomers() {
+    customerList = await fetchAny(urlCustomers);
+    console.log(customerList)
+    customerList.forEach(fillCustomerDropDown)
+}
+
 let body = {}
 const postCustomerRequest = {
     method: "POST",
@@ -32,7 +39,6 @@ const postCustomerRequest = {
     body: body
 }
 
-
 function postCustomer(customer) {
     body = JSON.stringify(customer)
     console.log(body)
@@ -40,5 +46,19 @@ function postCustomer(customer) {
     fetch(urlCustomers, postCustomerRequest).catch((error) => console.log(error));
 }
 
+function actionPostAllCustomers() {
+    if (customerList) {
+        console.log("post alle customers")
+        customerList.forEach(postCustomer)
+    } else {
+        console.log("tryk på fetchcustomer knappen fjols")
+    }
+}
 
-//button.addEventListener('click', compareCostumer)
+/*const pbFetchCustomers = document.getElementById("pbFetchCustomers")
+pbFetchCustomers.addEventListener('click', fetchCustomers)
+const pbPostCustomers = document.getElementById("pbPostCustomers")
+pbPostCustomers.addEventListener('click', actionPostAllCustomers)
+
+
+bu*tton.addEventListener('click', compareCostumer)*/
