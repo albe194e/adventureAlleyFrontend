@@ -21,14 +21,15 @@ async function postReqAction(username, password) {
 
     postReq.body = JSON.stringify(userBody)
 
-    await fetch(loginURL, postReq).catch((error) => console.log(error));
+    return await fetch(loginURL, postReq).catch((error) => console.log(error));
 
 }
 
 function loginAction() {
 
-    postReqAction(usernameLogin.value, passwordLogin.value)
+    let response = postReqAction(usernameLogin.value, passwordLogin.value)
 
+    console.log(response)
 
 }
 
