@@ -96,6 +96,30 @@
 
 </body>
 
+<script>
+    //get the form element
+    const form = document.getElementById('formCustomer');
+
+    //add event listener to the form's submit event
+    form.addEventListener('submit',(event) => {
+        event.preventDefault(); //prevent the form from submitting normally
+
+        //get the form data
+        const formData = new FormData(form);
+
+        //create an AJAX request to send the form data to the server-side script
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://localhost:8080/customers');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                //the server-side script returned a response
+                console.log(xhr.responseText);
+            }
+        };
+        xhr.send(formData);
+    })
+</script>
 <script src="../js/fetchcustomer.js"></script>
-<script src="../js/formcustomer.js"></script>
+
 </html>

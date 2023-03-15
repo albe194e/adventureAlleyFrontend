@@ -20,6 +20,7 @@ async function handleFormSubmit(event) {
         const formData = new FormData(form)
         console.log(formData)
         const responseData = await postFormData(url, formData)
+        console.log(responseData)
     } catch (error) {
         alert(error.message)
         console.log(error)
@@ -29,11 +30,12 @@ async function handleFormSubmit(event) {
 async function postFormData(url, formData) {
     const plainFormData = Object.fromEntries(formData.entries())
     console.log(plainFormData)
-    /*const ix = cnCustomer.selectedIndex;
-    console.log(ix)
+    //script stopper her
+    const ix = cnCustomer.selectedIndex;
+    console.log("tis" + ix)
     const linje = cnCustomer[ix]
-    console.log(linje.customer)
-    plainFormData.customer = linje.customer*/
+    console.log(linje)
+    plainFormData.customer = linje.customer
     const formDataJsonString = JSON.stringify(plainFormData)
     const fetchOptions = {
         method: "POST",
