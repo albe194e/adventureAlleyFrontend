@@ -1,8 +1,6 @@
 console.log("Vi er i fetch costumers")
 const urlCustomers = "http://localhost:8080/customers"
-const button = document.getElementById("loginBtn")
-const usernameLogin = document.getElementById("usernameLogin")
-const passwordLogin = document.getElementById("passwordLogin")
+
 
 function fetchAny(url) {
     console.log(url)
