@@ -39,7 +39,6 @@ async function updateUser(user, usernameInput, userTypeDD) {
 }
 
 
-
 function addToTable(user) {
 
     const row = table.insertRow()

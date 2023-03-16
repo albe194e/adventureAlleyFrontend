@@ -1,0 +1,37 @@
+#displayActivities {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.activity {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 1px 1px black;
+    cursor: pointer;
+}
+
+#gokart {
+    background-color: #ff4500;
+}
+#paintball {
+    background-color: #008000;
+}
+#minigolf {
+    background-color: #00bfff;
+}
+#sumoWrestling {
+    background-color: #8b008b;
+}
