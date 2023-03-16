@@ -2,14 +2,16 @@ const button = document.getElementById("loginbtn")
 const usernameLogin = document.getElementById("username")
 const passwordLogin = document.getElementById("password")
 
-//const loginURL = "http://localhost:8080/validateUserLogin"
+const loginURL = "http://localhost:8080/users"
 
 const newUserURL = "http://localhost:8080/createUser"
 const newUsername = document.getElementById("newUsername")
 const newPassword = document.getElementById("newPassword")
 const newUserBtn = document.getElementById("newUserBtn")
 
-
+function fetchAny(URL, req) {
+    return fetch(URL, req).then((response) => response.json())
+}
 
 
 const postReqLogin = {
@@ -39,24 +41,18 @@ async function newUserReq(username, password) {
 
 }
 
+async function loginAction() {
 
-async function loginReq(username, password) {
-    let userBody = {"userId" : 0, "username" : username, "password" : password, "userType" : "EMPLOYEE"}
+    const users = await fetchAny(loginURL)
 
-    console.log(userBody)
+    let user = users.find(user => user.username === usernameLogin.value && user.password === passwordLogin.value)
 
-    postReqLogin.body = JSON.stringify(userBody)
-
-    return await fetch(loginURL, postReqLogin).then((response) => console.log(response))
-
-}
-
-function loginAction() {
-
-    let response = loginReq(usernameLogin.value, passwordLogin.value)
-
-    console.log(response.status)
-
+    if (user) {
+        console.log("User found")
+        window.location.href = "../UserSites/employeePage.html"
+    } else {
+        console.log("User not found")
+    }
 }
 
 function newUserAction() {
