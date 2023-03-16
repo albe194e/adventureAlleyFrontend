@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+.description {
+    margin-top: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    line-height: 1.5;
+}
+.description img {
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    max-width: 300px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

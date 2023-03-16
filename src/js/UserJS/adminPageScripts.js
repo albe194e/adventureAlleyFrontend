@@ -5,6 +5,7 @@ const deleteURL = "http://localhost:8080/deleteUser"
 const updateURL = "http://localhost:8080/updateUser"
 
 
+
 function fetchAny(url) {
     return fetch(url).then((response) => response.json())
 }
@@ -25,7 +26,7 @@ async function deleteUser(user) {
 
 async function updateUser(user, usernameInput, userTypeDD) {
 
-    let body = {"userId" : user.userId, "username" : usernameInput.value, "password" : null, "userType" : userTypeDD.value}
+    let body = {"userId": user.userId, "username": usernameInput.value, "password": null, "userType": userTypeDD.value}
 
     const updateReq = {
         method: "PUT",
@@ -37,6 +38,7 @@ async function updateUser(user, usernameInput, userTypeDD) {
 
     await fetch(updateURL + "/" + user.userId, updateReq).catch((error) => console.log(error));
 }
+
 
 
 function addToTable(user) {
@@ -66,7 +68,7 @@ function addToTable(user) {
     cell2.appendChild(usernameInput)
     cell3.appendChild(userTypeDD)
 
-    createUpdateForm(updateCell,user, usernameInput, userTypeDD)
+    createUpdateForm(updateCell, user, usernameInput, userTypeDD)
 
     const button = document.createElement('button')
     button.textContent = "Slet bruger"
@@ -88,7 +90,7 @@ function addToTable(user) {
 
 }
 
-function createUpdateForm(cell,user,usernameInput, userTypeDD){
+function createUpdateForm(cell, user, usernameInput, userTypeDD) {
 
     const button = document.createElement('button')
     button.textContent = "Opdater bruger"
@@ -111,5 +113,6 @@ async function createTable() {
     })
 
 }
-
 createTable()
+
+

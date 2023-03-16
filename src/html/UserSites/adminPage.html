@@ -3,22 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin page</title>
+    <link rel="stylesheet" href="../../css/adminPage.css">
 
 </head>
 <body>
 
+<h1>Velkommen, adminstrator!</h1>
+<div class="options">
+    <div class="option">
+        <h2>Medarbejdere</h2>
+        <p>Se en liste med alle medarbejdere</p>
+        <a href="#">Gå til medarbejdere</a>
+    </div>
+    <div class="option">
+        <h2>Aktiviteter</h2>
+        <p>Tilføj/slet aktiviteter</p>
+        <a href="#">Gå til aktiviteter</a>
+    </div>
+</div>
+
 <table>
 
-  <thead>
-  <tr>
-    <td>MedarbejderId</td>
-    <td>brugernavn</td>
-    <td>Brugertype</td>
-  </tr>
-  </thead>
-  <tbody id="userTable">
+    <thead>
+    <tr>
+        <td>MedarbejderId</td>
+        <td>brugernavn</td>
+        <td>Brugertype</td>
+    </tr>
+    </thead>
+    <tbody id="userTable">
 
-  </tbody>
+    </tbody>
 </table>
 
 <button onclick="openNewWindow()">Opret ny bruger</button>
@@ -26,10 +41,10 @@
 
 </body>
 
-<script src="../../js/adminPageScripts.js"></script>
+<script src="../../js/UserJS/adminPageScripts.js"></script>
 <script>
-  function openNewWindow() {
-    window.open("newUserPage.html", "Opret ny bruger", "width=1000,height=700");
-  }
+    function openNewWindow() {
+        window.open("newUserPage.html", "Opret ny bruger", "width=1000,height=700");
+    }
 </script>
 </html>

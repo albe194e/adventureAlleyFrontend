@@ -4,22 +4,13 @@ const passwordLogin = document.getElementById("password")
 
 const loginURL = "http://localhost:8080/users"
 
-const newUserURL = "http://localhost:8080/createUser"
-const newUsername = document.getElementById("newUsername")
-const newPassword = document.getElementById("newPassword")
-const newUserBtn = document.getElementById("newUserBtn")
+
 
 function fetchAny(URL, req) {
     return fetch(URL, req).then((response) => response.json())
 }
 
-const postReqNewUser = {
-    method: "POST",
-    headers: {
-        "content-type": "application/json"
-    },
-    body: {}
-}
+
 async function newUserReq(username, password) {
 
     let newUserBody = {"userId": 0,"username" : username, "password" : password, "userType" : "EMPLOYEE"}
@@ -37,11 +28,18 @@ async function loginAction() {
 
     const users = await fetchAny(loginURL)
 
+    //Finder brugeren i listen af brugere
     let user = users.find(user => user.username === usernameLogin.value && user.password === passwordLogin.value)
 
+    //Hvis brugeren findes, så sendes brugeren videre til den rigtige side
     if (user) {
         console.log("User found")
-        window.location.href = "../UserSites/employeePage.html"
+
+        if (user.userType === "ADMIN") {
+            window.location.href = "../UserSites/adminPage.html"
+        } else{
+            window.location.href = "../UserSites/employeePage.html"
+        }
     } else {
         console.log("User not found")
     }
