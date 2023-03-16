@@ -2,7 +2,7 @@ const button = document.getElementById("loginbtn")
 const usernameLogin = document.getElementById("username")
 const passwordLogin = document.getElementById("password")
 
-const loginURL = "http://localhost:8080/validateUserLogin"
+//const loginURL = "http://localhost:8080/validateUserLogin"
 
 const newUserURL = "http://localhost:8080/createUser"
 const newUsername = document.getElementById("newUsername")

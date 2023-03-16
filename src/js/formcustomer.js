@@ -1,17 +1,20 @@
 console.log("Vi er i create new account")
-const button = document.getElementById("pbCreateCustomer")
+
+
 const newCustomerURL = "http://localhost:8080/createCustomer"
 
-const inputUsername = document.getElementById("inpUsername")
-const inputPassword = document.getElementById("inpPassword")
-const inputFirstname = document.getElementById("inpFornavn")
-const inputLastname = document.getElementById("inpEfternavn")
-const inputAddress = document.getElementById("inpAdresse")
-const inputTlf = document.getElementById("inpTlf")
-const inputEmail = document.getElementById("inpEmail")
+const inputUsername = document.getElementById("username")
+const inputPassword = document.getElementById("password")
+const inputFirstname = document.getElementById("firstName")
+const inputLastname = document.getElementById("lastName")
+const inputAddress = document.getElementById("address")
+const inputTlf = document.getElementById("phone")
+const inputEmail = document.getElementById("email")
+const newCstmButton = document.getElementById("pbCreateCustomer")
 
 
-const postCustomerReq = {
+
+const postReqNewCustomer = {
     method: "POST",
     headers: {
         "content-type": "application/json"
@@ -20,13 +23,13 @@ const postCustomerReq = {
 }
 
 async function newCustomerReq(username, password, firstName, lastName, address, tlf, mail) {
-    let newCustomerBody = {
-        "inpUsername": username, "inpPassword": password, "inpFornavn": firstName,
-        "inpEfternavn": lastName, "inpAdresse": address, "inpTlf": tlf, "inpEmail": mail
+    let newCustomerBody = {"customerId": 0,
+        "username": username, "password": password, "firstName": firstName,
+        "lastName": lastName, "address": address, "phone": tlf, "email": mail
     }
     console.log(newCustomerBody)
-    postCustomerReq.body = JSON.stringify(newCustomerBody)
-    return await fetch(newCustomerURL, postCustomerReq).then((response) => response.json())
+    postReqNewCustomer.body = JSON.stringify(newCustomerBody)
+    return await fetch(newCustomerURL, postReqNewCustomer).then((response) => response.json())
 }
 
 function newCustomerAction() {
@@ -35,20 +38,4 @@ function newCustomerAction() {
     console.log(response)
 }
 
-async function updateCustomerReq(address, tlf, mail) {
-    let updateCustomerBody = {
-        "inpAdresse": address, "inpTlf": tlf, "inpEmail": mail
-    }
-    console.log(updateCustomerBody)
-    postCustomerReq.body = JSON.stringify(updateCustomerBody)
-    return await fetch(newCustomerURL, postCustomerReq).then((response) => response.json())
-
-}
-
-function updateCustomerAction() {
-    let response = updateCustomerReq(inputAddress.value, inputTlf.value, inputEmail.value)
-    console.log(response)
-}
-
-button.addEventListener('click', newCustomerAction)
-button.addEventListener('click', updateCustomerAction)
+newCstmButton.addEventListener('click', newCustomerAction)

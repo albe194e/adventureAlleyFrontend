@@ -1,64 +1,101 @@
 console.log("Vi er i fetch costumers")
 const urlCustomers = "http://localhost:8080/customers"
+const updateCustomerURL = "http://localhost:8080/updateCustomer"
+const deleteCustomerURL = "http://localhost:8080/deleteCustomer"
 
 
-
+//fetch alle customers
 function fetchAny(url) {
     console.log(url)
     return fetch(url).then((response) => response.json())
 }
 
-async function compareCostumer() {
-    const customers = await fetchAny(urlCustomers)
+//delete customer
+async function deleteCustomer(customer, usernameInp, passwordInp) {
 
-    console.log(usernameLogin.value)
-    customers.forEach(customer => {
-        if (customer.username === usernameLogin.value) {
-            console.log("customer er i system")
-            if (customer.password === passwordLogin.value) {
-                console.log("password er korrekt")
-            } else {
-                console.log("forkert password")
-            }
+    let body = {"customerId": customer.customerId, "inpUsername": usernameInp.value, "inpPassword": passwordInp.value}
+
+    const deleteReq = {
+        method: "DELETE",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(customer)
+    }
+
+    await fetch(deleteCustomerURL + "/" + customer.customerId, deleteReq).catch((error) => console.log(error));
+
+}
+
+//update customer
+async function updateCustomer(customer, usernameInp, passwordInp) {
+    let body = {"customerId": customer.customerId, "inpUsername": usernameInp.value, "inpPassword": passwordInp.value}
+
+    const updateReq = {
+        method: "PUT",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(body)
+    }
+
+    await fetch(updateCustomerURL + "/" + customer.customerId, updateReq).catch((error) => console.log(error));
+}
+
+function addToTable(customer) {
+
+    const row = table.insertRow()
+
+    const cell1 = row.insertCell()
+    const cell2 = row.insertCell()
+    const cell3 = row.insertCell()
+    const updateCell = row.insertCell()
+    const deleteCell = row.insertCell()
+
+    const usernameInput = document.createElement('input')
+    usernameInput.value = customer.username
+
+    const passwordInput = document.createElement('input')
+    passwordInput.value = customer.password
+
+    createUpdateForm(updateCell, customer, usernameInput, passwordInput)
+
+    const button = document.createElement('button')
+    button.textContent = "Delete"
+    button.value = customer.customerId
+    button.addEventListener('click', {
+        handleEvent: function () {
+            row.remove()
+            deleteCustomer(customer)
         }
     })
-}
-customerList = []
-async function fetchCustomers() {
-    customerList = await fetchAny(urlCustomers);
-    console.log(customerList)
-    customerList.forEach(fillCustomerDropDown)
-}
+    deleteCell.appendChild(button)
 
-let body = {}
-const postCustomerRequest = {
-    method: "POST",
-    headers: {
-        "content-type": "application/json"
-    },
-    body: body
-}
+    row.appendChild(cell1)
+    row.appendChild(cell2)
+    row.appendChild(cell3)
+    row.appendChild(updateCell)
+    row.appendChild(deleteCell)
 
-function postCustomer(customer) {
-    body = JSON.stringify(customer)
-    console.log(body)
-    postCustomerRequest.body = body
-    fetch(urlCustomers, postCustomerRequest).catch((error) => console.log(error));
 }
+//create update form
+function createUpdateForm(cell, customer, usernameInput, passwordInput) {
 
-function actionPostAllCustomers() {
-    if (customerList) {
-        console.log("post alle customers")
-        customerList.forEach(postCustomer)
-    } else {
-        console.log("tryk på fetchcustomer knappen fjols")
-    }
+    const button = document.createElement('button')
+    button.textContent = "Update"
+    button.addEventListener('click', {
+        handleEvent: function () {
+            updateCustomer(customer, usernameInput, passwordInput)
+            console.log("updated")
+        }
+    })
+    cell.appendChild(button)
 }
 
-/*const pbFetchCustomers = document.getElementById("pbFetchCustomers")
-pbFetchCustomers.addEventListener('click', fetchCustomers)
-const pbPostCustomers = document.getElementById("pbPostCustomers")
-pbPostCustomers.addEventListener('click', actionPostAllCustomers)
-
-
-bu*tton.addEventListener('click', compareCostumer)*/
+async function createTable() {
+    const customers = await fetchAny(urlCustomers)
+    customers.forEach(customer => {
+        addToTable(customer)
+    })
+}
+createTable()
