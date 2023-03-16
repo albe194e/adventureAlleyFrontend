@@ -35,5 +35,20 @@ function newCustomerAction() {
     console.log(response)
 }
 
-button.addEventListener('click', newCustomerAction)
+async function updateCustomerReq(address, tlf, mail) {
+    let updateCustomerBody = {
+        "inpAdresse": address, "inpTlf": tlf, "inpEmail": mail
+    }
+    console.log(updateCustomerBody)
+    postCustomerReq.body = JSON.stringify(updateCustomerBody)
+    return await fetch(newCustomerURL, postCustomerReq).then((response) => response.json())
 
+}
+
+function updateCustomerAction() {
+    let response = updateCustomerReq(inputAddress.value, inputTlf.value, inputEmail.value)
+    console.log(response)
+}
+
+button.addEventListener('click', newCustomerAction)
+button.addEventListener('click', updateCustomerAction)
