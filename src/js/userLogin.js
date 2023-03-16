@@ -13,14 +13,6 @@ function fetchAny(URL, req) {
     return fetch(URL, req).then((response) => response.json())
 }
 
-
-const postReqLogin = {
-    method: "POST",
-    headers: {
-        "content-type": "application/json"
-    },
-    body: {}
-}
 const postReqNewUser = {
     method: "POST",
     headers: {
