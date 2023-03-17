@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <title>Kunde login</title>
     <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/loginCustomer.css">
 </head>
 <header>Kundelogin</header>
 <body>
 
 <h1>Opret ny bruger</h1>
-<div>
-        <div>
-            <label for="firstName">Fornavn</label>
+<div class="form-container">
+        <div class="input-field">
+            <label for="firstName">Fornavn <br></label> <br><br>
             <input
                     type="text"
                     name="fornavn"
@@ -19,8 +20,8 @@
                     placeholder="eks. Jakob"
                     id="firstName">
         </div>
-        <div>
-            <label for="lastName">Efternavn</label>
+        <div class="input-field">
+            <label for="lastName">Efternavn<br></label><br><br>
             <input
                     type="text"
                     name="efternavn"
@@ -28,8 +29,8 @@
                     placeholder="eks. Jensen"
                     id="lastName">
         </div>
-        <div>
-            <label for="email">Email</label>
+        <div class="input-field">
+            <label for="email">Email<br></label><br><br>
             <input
                     type="text"
                     name="email"
@@ -37,8 +38,8 @@
                     placeholder="eks."
                     id="email">
         </div>
-        <div>
-            <label for="address">Adresse</label>
+        <div class="input-field">
+            <label for="address">Adresse<br></label><br><br>
             <input
                     type="text"
                     name="adresse"
@@ -46,8 +47,8 @@
                     placeholder="eks."
                     id="address">
         </div>
-        <div>
-            <label for="phone">Telefonnummer</label>
+        <div class="input-field">
+            <label for="phone">Telefonnummer<br></label><br><br>
             <input
                     type="text"
                     name="tlf"
@@ -55,8 +56,8 @@
                     placeholder="eks."
                     id="phone">
         </div>
-        <div>
-            <label for="username">Brugernavn</label>
+        <div class="input-field">
+            <label for="username">Brugernavn<br></label><br><br>
             <input
                     type="text"
                     name="username"
@@ -64,8 +65,8 @@
                     placeholder="eks."
                     id="username">
         </div>
-        <div>
-            <label for="password">Password</label>
+        <div class="input-field">
+            <label for="password">Password<br></label><br><br>
             <input
                     type="text"
                     name="password"
@@ -73,23 +74,32 @@
                     placeholder="eks."
                     id="password">
         </div>
-        <button id="pbCreateCustomer">Opret ny bruger</button>
+        <button class="button" id="pbCreateCustomer">Opret ny bruger</button>
 </div>
 
 <hr>
 
 <h1>Log ind</h1>
 
-<label>Brugernavn: <br>
-    <input type="text" id="usernameLogin" placeholder=" ">
-</label>
+<div class="form-container">
+    <div class="input-field">
+        <label> <br>
+            <input type="text" id="usernameLogin" placeholder=" ">
+        </label>
+    </div>
+    <div class="input-field">
+        <label> <br>
+            <input type="text" id="passwordLogin" placeholder=" ">
+        </label>
+    </div>
+    <button class="button" id="pbLogin">login</button>
+</div>
+
 <br>
 
-<label>Adgangskode: <br>
-    <input type="text" id="passwordLogin" placeholder=" ">
-</label>
 
-<button id="pbLogin">login</button>
+
+
 
 
 </body>
