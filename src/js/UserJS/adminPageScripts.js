@@ -12,12 +12,9 @@ function fetchAny(url) {
 
 async function deleteUser(user) {
 
+
     const deleteReq = {
-        method: "DELETE",
-        headers: {
-            "content-type": "application/json"
-        },
-        body: JSON.stringify(user)
+        method: "DELETE"
     }
 
     await fetch(deleteURL + "/" + user.userId, deleteReq).catch((error) => console.log(error));
