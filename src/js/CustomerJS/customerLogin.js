@@ -18,12 +18,12 @@ async function loginAction() {
     if (customer) {
         console.log("Customer found")
         window.location.href = "../CustomerSites/customerPage.html"
+
     } else {
         console.log("Customer not found")
     }
 
 }
-
 btnLogin.addEventListener('click', loginAction)
 
 

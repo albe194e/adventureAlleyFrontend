@@ -1,12 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Kunde side</title>
+    <link rel="stylesheet" href="../../css/customerPage.css">
 </head>
 <body>
+<h1>Dine oplysninger</h1>
+<div class="customer-info">
 
-this is you customer page
+    <p id="fornavn"></p>
+    <p id="efternavn"></p>
+    <p id="email"></p>
+    <p id="telefon"></p>
+    <p id="adresse"></p>
+    <p id="username"></p>
+
+</div>
+
+<h1>Her er dine reserveringer</h1>
+<div class="customer-info">
+
+    <table>
+        <thead>
+        <tr>
+            <td>Aktivitet</td>
+            <td>Dato</td>
+            <td>Starttidspunkt</td>
+            <td>slutTidspunkt</td>
+        </tr>
+        </thead>
+        <tbody id="reserveringer">
+
+        </tbody>
+    </table>
+
+</div>
+<br>
+<button onclick="window.location.href = 'newReservation.html'">Lav en ny reservation</button>
+
 
 </body>
+<script src="../../js/CustomerJS/customerPage.js"></script>
+
 </html>
