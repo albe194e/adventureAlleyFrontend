@@ -18,7 +18,7 @@
     <div class="option">
         <h2>Aktiviteter</h2>
         <p>Tilføj/slet aktiviteter</p>
-        <a href="#">Gå til aktiviteter</a>
+        <button onclick="openNewWindow1()">Opret</button>
     </div>
 </div>
 
@@ -37,12 +37,19 @@
 </table>
 
 <button onclick="openNewWindow()">Opret ny bruger</button>
-
+<button onclick="openNewWindow2()">Opret nyt equipment</button>
 
 </body>
 
 <script src="../../js/UserJS/adminPageScripts.js"></script>
 <script>
+
+    function openNewWindow2() {
+        window.open("../NonLoginPages/CreateEquipment.html", "Opret nyt equipment", "width=1000,height=700")
+    }
+    function openNewWindow1() {
+        window.open("../NonLoginPages/CreateActivity.html", "Opret ny aktivitet", "width=1000,height=700")
+    }
     function openNewWindow() {
         window.open("newUserPage.html", "Opret ny bruger", "width=1000,height=700");
     }
