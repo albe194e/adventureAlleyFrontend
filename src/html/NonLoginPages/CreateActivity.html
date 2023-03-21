@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Activity</title>
+    <link rel="stylesheet" href="../../css/newUser.css">
+</head>
+<body>
+
+<div>
+    <h1>Opret ny aktivitet</h1>
+    <div>
+        <label for="name">Aktivitet Navn</label>
+        <input
+                type="text"
+                name="navn"
+                class="input-field"
+                placeholder="eks. gokart"
+                id="name">
+    </div>
+    <div>
+        <label for="ageLimit">Aldersgrænse</label>
+        <input
+                type="text"
+                name="alder"
+                class="input-field"
+                placeholder="eks. 12"
+                id="ageLimit">
+    </div>
+    <div>
+        <label for="price">Pris</label>
+        <input
+                type="text"
+                name="pris"
+                class="input-field"
+                placeholder="eks. 100"
+                id="price">
+    </div>
+    <div>
+        <label for="ddEquipment">Udstyr</label>
+        <select id="ddEquipment"></select>
+    </div>
+    <button id="pbCreateActivity">Opret</button>
+</div>
+
+</body>
+<script src="../../js/ActivitiesJS/formActivity.js"></script>
+
+</html>
