@@ -3,6 +3,8 @@
 <head>
     <title>Kunde side</title>
     <link rel="stylesheet" href="../../css/customerPage.css">
+    <link rel="stylesheet" href="../../css/sfsdfsdf.css">
+
 </head>
 <body>
 <h1>Dine oplysninger</h1>
@@ -20,19 +22,24 @@
 <h1>Her er dine reserveringer</h1>
 <div class="customer-info">
 
-    <table>
-        <thead>
-        <tr>
-            <td>Aktivitet</td>
-            <td>Dato</td>
-            <td>Starttidspunkt</td>
-            <td>slutTidspunkt</td>
-        </tr>
-        </thead>
-        <tbody id="reserveringer">
+    <h2 style="display: none" id="noReservations">Du har ingen reservationer</h2>
 
-        </tbody>
-    </table>
+    <div class="container">
+        <table id="table">
+            <thead>
+            <tr>
+                <td>Aktivitet</td>
+                <td>Dato</td>
+                <td>Starttidspunkt</td>
+                <td>slutTidspunkt</td>
+            </tr>
+            </thead>
+            <tbody id="reserveringer">
+
+            </tbody>
+        </table>
+
+    </div>
 
 </div>
 <br>

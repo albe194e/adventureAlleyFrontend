@@ -1,8 +1,8 @@
 const table = document.getElementById("userTable")
 
-const usersURL = "http://localhost:8081/users"
-const deleteURL = "http://localhost:8081/deleteUser"
-const updateURL = "http://localhost:8081/updateUser"
+const usersURL = "http://localhost:8080/users"
+const deleteURL = "http://localhost:8080/deleteUser"
+const updateURL = "http://localhost:8080/updateUser"
 
 
 

@@ -13,7 +13,7 @@
     <div class="option">
         <h2>Medarbejdere</h2>
         <p>Se en liste med alle medarbejdere</p>
-        <a href="#">Gå til medarbejdere</a>
+        <a href="listOfEmployees.html">Gå til medarbejdere</a>
     </div>
     <div class="option">
         <h2>Aktiviteter</h2>
@@ -22,21 +22,7 @@
     </div>
 </div>
 
-<table>
 
-    <thead>
-    <tr>
-        <td>MedarbejderId</td>
-        <td>brugernavn</td>
-        <td>Brugertype</td>
-    </tr>
-    </thead>
-    <tbody id="userTable">
-
-    </tbody>
-</table>
-
-<button onclick="openNewWindow()">Opret ny bruger</button>
 <button onclick="openNewWindow2()">Opret nyt equipment</button>
 
 </body>
@@ -50,8 +36,6 @@
     function openNewWindow1() {
         window.open("../NonLoginPages/CreateActivity.html", "Opret ny aktivitet", "width=1000,height=700")
     }
-    function openNewWindow() {
-        window.open("newUserPage.html", "Opret ny bruger", "width=1000,height=700");
-    }
+
 </script>
 </html>
